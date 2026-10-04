@@ -1,0 +1,26 @@
+{
+  "name": "cap-java-products-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SAP CAP Java and Fiori elements products sample",
+  "scripts": {
+    "start": "cds watch",
+    "build": "cds build --production",
+    "test": "mvn -pl srv test"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^9.0.0"
+  },
+  "dependencies": {
+    "@sap/cds": "^9.0.0",
+    "express": "^4.21.2"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "impl": "@cap-js/sqlite"
+      }
+    }
+  }
+}

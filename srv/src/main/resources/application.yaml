@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:products;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+  jpa:
+    open-in-view: false
+cds:
+  datasource:
+    auto-config:
+      enabled: true
