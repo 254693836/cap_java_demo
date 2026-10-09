@@ -4,13 +4,14 @@
     "id": "com.example.products", "type": "application", "i18n": "i18n/i18n.properties", "title": "{{appTitle}}",
     "dataSources": { "mainService": { "uri": "/odata/v4/catalog/", "type": "OData", "settings": { "odataVersion": "4.0" } } }
   },
+  "sap.fe": {},
   "sap.ui5": {
     "dependencies": { "minUI5Version": "1.120.0", "libs": { "sap.fe.templates": {}, "sap.f": {}, "sap.m": {}, "sap.ui.core": {}, "sap.ui.fl": {}, "sap.ui.mdc": {} } },
     "models": { "": { "dataSource": "mainService", "settings": { "synchronizationMode": "None", "operationMode": "Server", "autoExpandSelect": true } } },
     "routing": {
       "routes": [{ "pattern": ":?query:", "name": "ProductsList", "target": "ProductsList" }, { "pattern": "Products({key}):?query:", "name": "ProductsObjectPage", "target": "ProductsObjectPage" }],
       "targets": {
-        "ProductsList": { "type": "Component", "id": "ProductsList", "name": "sap.fe.templates.ListReport", "options": { "settings": { "contextPath": "/Products", "variantManagement": "Page", "navigation": { "Products": { "detail": { "route": "ProductsObjectPage" } } } } } },
+        "ProductsList": { "type": "Component", "id": "ProductsList", "name": "sap.fe.templates.ListReport", "options": { "settings": { "contextPath": "/Products", "variantManagement": "None", "navigation": { "Products": { "detail": { "route": "ProductsObjectPage" } } } } } },
         "ProductsObjectPage": { "type": "Component", "id": "ProductsObjectPage", "name": "sap.fe.templates.ObjectPage", "options": { "settings": { "contextPath": "/Products", "editableHeaderContent": false, "controlConfiguration": { "@com.sap.vocabularies.UI.v1.Identification": { "actions": { "checkProduct": { "text": "Check", "press": "com.example.products.ext.controller.ObjectPageExt.onCheckProduct", "requiresSelection": false } } } } } } }
       }
     },
