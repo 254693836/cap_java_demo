@@ -8,7 +8,7 @@ service CatalogService {
   };
 
   type CheckResult {
-    ![exists] : Boolean;
+    productExists : Boolean;
     message : String;
   };
 }
