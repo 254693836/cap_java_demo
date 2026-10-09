@@ -2,6 +2,6 @@
   "name": "products-ui",
   "version": "1.0.0",
   "private": true,
-  "scripts": {"start": "fiori run --open index.html", "build": "ui5 build --clean-dest"},
+  "scripts": {"start": "fiori run --open \"test/flpSandbox.html#preview-app\"", "build": "ui5 build --clean-dest"},
   "devDependencies": {"@sap/ux-ui5-tooling": "^1.16.0", "@ui5/cli": "^4.0.0", "ui5-middleware-simpleproxy": "^3.3.0"}
 }

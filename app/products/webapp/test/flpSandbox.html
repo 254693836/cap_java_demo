@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>商品管理</title>
+    <script>
+      window["sap-ushell-config"] = {
+        defaultRenderer: "fiori2",
+        renderers: { fiori2: { componentData: { config: { search: "hidden" } } } },
+        applications: {
+          "preview-app": {
+            title: "商品管理",
+            applicationType: "URL",
+            additionalInformation: "SAPUI5.Component=com.example.products",
+            url: "../"
+          }
+        }
+      };
+    </script>
+    <script src="../resources/sap-ushell-config.js"></script>
+    <script
+      id="sap-ui-bootstrap"
+      src="../resources/sap-ui-core.js"
+      data-sap-ui-libs="sap.m,sap.ushell,sap.fe.templates"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-async="true"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-frameOptions="allow"></script>
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        sap.ushell.Container.createRenderer().placeAt("content");
+      });
+    </script>
+  </head>
+  <body class="sapUiBody" id="content"></body>
+</html>
