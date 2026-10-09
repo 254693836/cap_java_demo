@@ -17,7 +17,7 @@ Java 21、Maven 3.9 以降、Node.js 20 以降が必要です。
 ```bash
 npm install
 npm run build
-mvn -f gen/srv/pom.xml spring-boot:run
+mvn -pl srv spring-boot:run
 ```
 
 別のターミナルで Fiori アプリを起動します。
@@ -30,4 +30,4 @@ npm start
 
 バックエンドの OData メタデータは `http://localhost:8080/odata/v4/catalog/$metadata` で確認できます。
 
-`mvn -pl srv spring-boot:run` を直接実行しないでください。CAP の CDS モデルから Java 型と CSN を生成するために、先に `npm run build` が必要です。
+CAP の CDS モデルから CSN を生成するために、`mvn -pl srv spring-boot:run` の前に `npm run build` を実行してください。
