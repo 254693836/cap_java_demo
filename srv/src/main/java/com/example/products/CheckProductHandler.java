@@ -21,7 +21,7 @@ public class CheckProductHandler implements EventHandler {
   }
 
   @On(event = "check", entity = Products_.CDS_NAME, service = CatalogService_.CDS_NAME)
-  public void check(CheckContext context) {
+  public void check(CheckProductContext context) {
     boolean exists = db.run(context.getCqn()).first().isPresent();
     context.setResult(Map.of(
         "productExists", exists,
