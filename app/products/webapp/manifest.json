@@ -56,7 +56,7 @@
                 "@com.sap.vocabularies.UI.v1.Identification": {
                   "actions": {
                     "checkProduct": {
-                      "text": "Check",
+                      "text": "{{checkProduct}}",
                       "press": "com.example.products.ext.controller.ObjectPageExt.onCheckProduct",
                       "requiresSelection": false
                     }

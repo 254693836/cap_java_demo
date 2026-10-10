@@ -11,6 +11,21 @@ CAP Java（OData V4）と SAP Fiori elements を使った商品管理のサン�
   - 存在時: `データはDBに存在します`
   - 不存在時: `データはDBに存在しません`
 
+## 実装方針
+
+- CDS: 商品エンティティ、OData V4 サービス、一覧／Object Page の annotation を定義します。
+- CAP Java: 標準 CRUD は CAP に任せ、価格・在庫数の業務チェックと `check` action だけを実装します。
+- Fiori elements: 一覧・登録・更新は標準の List Report／Object Page を利用します。`Check` の結果ポップアップだけを UI5 controller extension で実装します。
+- 一覧は商品名の昇順で初期表示し、価格は通貨コードを使って表示します。
+
+## テスト
+
+```bash
+mvn -pl srv test
+```
+
+テストでは、価格・在庫数の入力チェックと `check` action が返す存在有無メッセージを確認します。
+
 ## 起動
 
 Java 21、Maven 3.9 以降、Node.js 20 以降が必要です。
