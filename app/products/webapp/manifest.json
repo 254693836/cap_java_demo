@@ -37,6 +37,7 @@
             "settings": {
               "contextPath": "/Products",
               "variantManagement": "None",
+              "initialLoad": "Enabled",
               "navigation": { "Products": { "detail": { "route": "ProductsObjectPage" } } }
             }
           }
