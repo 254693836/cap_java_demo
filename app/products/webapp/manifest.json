@@ -10,7 +10,7 @@
     "contentDensities": { "compact": true, "cozy": true },
     "models": { "": { "dataSource": "mainService", "settings": { "synchronizationMode": "None", "operationMode": "Server", "autoExpandSelect": true } } },
     "rootView": {
-      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "viewName": "sap.fe.core.rootView.Fcl",
       "type": "XML",
       "async": true,
       "id": "appRootView"
