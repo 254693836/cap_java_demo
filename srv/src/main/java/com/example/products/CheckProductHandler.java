@@ -23,8 +23,12 @@ public class CheckProductHandler implements EventHandler {
   @On(event = "check", entity = Products_.CDS_NAME, service = CatalogService_.CDS_NAME)
   public void check(CheckProductContext context) {
     boolean exists = db.run(context.getCqn()).first().isPresent();
-    context.setResult(Map.of(
+    context.setResult(resultFor(exists));
+  }
+
+  static Map<String, Object> resultFor(boolean exists) {
+    return Map.of(
         "productExists", exists,
-        "message", exists ? "データはDBに存在します" : "データはDBに存在しません"));
+        "message", exists ? "データはDBに存在します" : "データはDBに存在しません");
   }
 }
