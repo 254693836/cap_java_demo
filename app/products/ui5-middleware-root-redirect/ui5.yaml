@@ -1,0 +1,7 @@
+specVersion: "3.0"
+metadata:
+  name: ui5-middleware-root-redirect
+kind: extension
+type: server-middleware
+middleware:
+  path: middleware.js

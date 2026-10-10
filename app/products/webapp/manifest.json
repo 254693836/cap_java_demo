@@ -7,12 +7,64 @@
   "sap.fe": {},
   "sap.ui5": {
     "dependencies": { "minUI5Version": "1.120.0", "libs": { "sap.fe.templates": {}, "sap.f": {}, "sap.m": {}, "sap.ui.core": {}, "sap.ui.fl": {}, "sap.ui.mdc": {} } },
+    "contentDensities": { "compact": true, "cozy": true },
     "models": { "": { "dataSource": "mainService", "settings": { "synchronizationMode": "None", "operationMode": "Server", "autoExpandSelect": true } } },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    },
     "routing": {
-      "routes": [{ "pattern": ":?query:", "name": "ProductsList", "target": "ProductsList" }, { "pattern": "Products({key}):?query:", "name": "ProductsObjectPage", "target": "ProductsObjectPage" }],
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+        }
+      },
+      "routes": [
+        { "pattern": ":?query:", "name": "ProductsList", "target": ["ProductsList"] },
+        { "pattern": "Products({key}):?query:", "name": "ProductsObjectPage", "target": ["ProductsList", "ProductsObjectPage"] }
+      ],
       "targets": {
-        "ProductsList": { "type": "Component", "id": "ProductsList", "name": "sap.fe.templates.ListReport", "options": { "settings": { "contextPath": "/Products", "variantManagement": "None", "navigation": { "Products": { "detail": { "route": "ProductsObjectPage" } } } } } },
-        "ProductsObjectPage": { "type": "Component", "id": "ProductsObjectPage", "name": "sap.fe.templates.ObjectPage", "options": { "settings": { "contextPath": "/Products", "editableHeaderContent": false, "controlConfiguration": { "@com.sap.vocabularies.UI.v1.Identification": { "actions": { "checkProduct": { "text": "Check", "press": "com.example.products.ext.controller.ObjectPageExt.onCheckProduct", "requiresSelection": false } } } } } } }
+        "ProductsList": {
+          "type": "Component",
+          "id": "ProductsList",
+          "name": "sap.fe.templates.ListReport",
+          "controlAggregation": "beginColumnPages",
+          "options": {
+            "settings": {
+              "contextPath": "/Products",
+              "variantManagement": "None",
+              "navigation": { "Products": { "detail": { "route": "ProductsObjectPage" } } }
+            }
+          }
+        },
+        "ProductsObjectPage": {
+          "type": "Component",
+          "id": "ProductsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Products({key})",
+          "options": {
+            "settings": {
+              "contextPath": "/Products",
+              "editableHeaderContent": false,
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.Identification": {
+                  "actions": {
+                    "checkProduct": {
+                      "text": "Check",
+                      "press": "com.example.products.ext.controller.ObjectPageExt.onCheckProduct",
+                      "requiresSelection": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "extends": { "extensions": { "sap.ui.controllerExtensions": { "sap.fe.templates.ObjectPage.ObjectPageController": { "controllerName": "com.example.products.ext.controller.ObjectPageExt" } } } }
