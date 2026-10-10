@@ -13,6 +13,24 @@
   </dependencies>
   <build><plugins>
     <plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin>
-    <plugin><groupId>com.sap.cds</groupId><artifactId>cds-maven-plugin</artifactId><version>${cds.services.version}</version><executions><execution><goals><goal>generate</goal></goals></execution></executions></plugin>
+    <plugin>
+      <groupId>com.sap.cds</groupId>
+      <artifactId>cds-maven-plugin</artifactId>
+      <version>${cds.services.version}</version>
+      <executions>
+        <execution>
+          <goals><goal>generate</goal></goals>
+        </execution>
+        <execution>
+          <id>h2-schema</id>
+          <goals><goal>cds</goal></goals>
+          <configuration>
+            <commands>
+              <command>deploy --to h2 --dry --out "${project.basedir}/src/main/resources/schema.sql"</command>
+            </commands>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
   </plugins></build>
 </project>

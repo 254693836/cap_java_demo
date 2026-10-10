@@ -3,5 +3,7 @@ target/
 dist/
 gen/
 srv/src/gen/
+srv/src/main/resources/edmx/
+srv/src/main/resources/schema.sql
 *.db
 *.log

@@ -30,4 +30,4 @@ npm start
 
 バックエンドの OData メタデータは `http://localhost:8080/odata/v4/catalog/$metadata` で確認できます。
 
-CAP の CDS モデルから CSN を生成するために、`mvn -pl srv spring-boot:run` の前に `npm run build` を実行してください。
+CAP の CDS モデルから CSN を生成するため、`mvn -pl srv spring-boot:run` の前に `npm run build` を実行してください。H2 用の `schema.sql` は Maven 起動時に CDS モデルから生成され、Spring Boot の起動時に適用されます。
