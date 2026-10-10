@@ -5,6 +5,7 @@ CAP Java（OData V4）と SAP Fiori elements を使った商品管理のサン�
 ## 機能
 
 - 商品の一覧表示、登録、更新（Fiori elements の List Report / Object Page）
+- 商品登録・更新時の価格と在庫数の非負チェック（違反時は日本語メッセージを表示）
 - ローカル H2 データベースと CSV 初期データ
 - Object Page から商品がDBに存在することを確認する `Check` バインドアクション
   - 存在時: `データはDBに存在します`
