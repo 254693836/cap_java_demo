@@ -15,6 +15,8 @@ CAP Java（OData V4）と SAP Fiori elements を使った商品管理のサン�
 Java 21、Maven 3.9 以降、Node.js 20 以降が必要です。
 
 ```bash
+git pull origin main
+rm -rf srv/src/gen srv/target
 npm install
 npm run build
 mvn -pl srv spring-boot:run
@@ -26,6 +28,8 @@ mvn -pl srv spring-boot:run
 cd app/products
 npm install
 npm start
+※①basで起動できないなら：npx ui5 serve --port 8081
+※②ブラウザで Ctrl + Shift + R
 ```
 
 バックエンドの OData メタデータは `http://localhost:8080/odata/v4/catalog/$metadata` で確認できます。
